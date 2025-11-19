@@ -140,3 +140,16 @@ Archivos principales (en `app_14/`):
 ├── README.md
 ├── LICENSE
 └── .gitignore
+
+📄 License
+
+Este proyecto está licenciado bajo Creative Commons Attribution – NonCommercial – ShareAlike 4.0 International (CC BY-NC-SA 4.0).
+Podés usarlo, estudiarlo y modificarlo, siempre que:
+
+menciones al autor original,
+
+no lo utilices con fines comerciales,
+
+y compartas cualquier obra derivada bajo la misma licencia.
+
+Más información: https://creativecommons.org/licenses/by-nc-sa/4.0/
