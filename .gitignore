@@ -1,0 +1,31 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Archivos de editor / IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Archivos temporales
+tempCodeRunnerFile.py
+
+# ---- Sphinx (documentación) ----
+Documentacion/_build/
+Documentacion/.doctrees/
+
+# ---- Sistemas operativos ----
+.DS_Store
+Thumbs.db
+
+# ---- Flet / builds (si usás empaquetado) ----
+build/
+dist/
+.flet/
