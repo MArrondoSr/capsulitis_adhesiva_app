@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Código Auxiliar: Conexión al Servidor</title>
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #E6E6FA; /* Fondo claro */
+        }
+        .header {
+            background: #19177C; /* Banda superior */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .highlight {
+            background: #f8f8f8;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Código Auxiliar: Conexión al Servidor</div>
+    <div class="content">
+        <p>Este es el código del servidor que recibe información mediante el decorador indicador_baja utilizando sockets.</p>
+        <div class="highlight"><pre>
+<span style="color: #008000; font-weight: bold"># servidor.py</span>
+<span style="color: #0000FF; font-weight: bold">import</span> socket
+
+'''
+Estando encendido en otra máquina, cuando se borra un registro de la base de datos 
+recibe esa información y la registra en el archivo backup_datos_borrados.txt 
+ubicado en la máquina donde está el servidor. 
+'''
+
+serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+serversocket.bind((<span style="color: #BA2121">""</span>, <span style="color: #666666">456</span>))
+serversocket.listen(<span style="color: #666666">5</span>)
+print(<span style="color: #BA2121">"Servidor activo, esperando..."</span>)
+
+<span style="color: #0000FF; font-weight: bold">while True</span>:
+    connection, address = serversocket.accept()
+    data = connection.recv(<span style="color: #666666">1024</span>).decode(<span style="color: #BA2121">"utf-8"</span>)
+    <span style="color: #0000FF; font-weight: bold">if</span> data:
+        <span style="color: #0000FF; font-weight: bold">with</span> open(<span style="color: #BA2121">"backup_datos_borrados.txt"</span>, <span style="color: #BA2121">"a"</span>, encoding=<span style="color: #BA2121">"utf-8"</span>) <span style="color: #0000FF; font-weight: bold">as</span> archivo:
+            archivo.write(data + <span style="color: #BA2121">"\n"</span>)
+        print(f<span style="color: #BA2121">"Log recibido de {address}: {data}"</span>)
+        
+    connection.close()
+</pre></div>
+
+     <div class="button-container">
+            <a href="../index.html" class="back-button">⬅ Volver al índice</a>
+        </div>
+    </div>
+</body>
+</html>

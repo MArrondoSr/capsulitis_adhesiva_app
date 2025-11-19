@@ -1,0 +1,7 @@
+cls\_boton module
+=================
+
+.. automodule:: cls_boton
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -1,0 +1,1 @@
+checks_grid = ft.Column(checkboxes, wrap=True, spacing=5)

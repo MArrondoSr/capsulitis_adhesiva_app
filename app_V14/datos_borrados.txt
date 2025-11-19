@@ -1,0 +1,4 @@
+[2025-07-25 18:25:40] Se borraron los datos del paciente ccc, ccc, con Num. H.C. 2300.
+[2025-07-27 18:27:20] Se borraron los datos del paciente Vozza, Claudia, con Num. H.C. 2003.
+[2025-07-27 18:27:29] Se borraron los datos del paciente Vozza, Claudia, con Num. H.C. 2003.
+[2025-07-29 10:38:27] Se borraron los datos del paciente bbbb, bbbb, con Num. H.C. 3000.

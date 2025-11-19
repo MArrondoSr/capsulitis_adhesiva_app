@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modelo_13 &mdash; T.P. Nivel Avanzado - Miguel Arrondo - Documentación</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+            <a href="index.html" class="nav-home-link">
+    <img src="_static/utn.png" alt="Inicio" class="nav-home-icon">
+    Diplomatura Python<br>T.P. Nivel Avanzado<br>Miguel Arrondo
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Indice de Códigos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="controlador_13.html">"Módulo Controlador (controlador_13)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelo_13.html">"Módulo Modelo (modelo_13)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vista_13.html">"Módulo de la Vista (vista_13)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clases_try.html">"Módulo de excepciones (clases_try)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cls_boton.html">"Módulo Clase botones (cls_boton)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decoradores.html">"Módulo decoradores (decoradores)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observador.html">"Módulo patrón observador (observador)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex_file.html">"Módulo de expresiones regulares (regex_file)"</a></li>
+
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">T.P. Nivel Avanzado - Miguel Arrondo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente de modelo_13</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;MODELO: crea la base Sqlite si no existe y en ella tres tablas (Usuario, Pacientes y Sesiones).</span>
+<span class="sd">En la primera se guardan los usuarios y contraseñas habilitados. Las otras dos están relacionadas: cuando se modifica una fila en Pacientes</span>
+<span class="sd">se genera una nueva fila de ese paciente en Sesiones.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">peewee</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">clases_try</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">observador</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sujeto</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">SqliteDatabase</span><span class="p">(</span><span class="s1">&#39;db_casos_capsulitis.db&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BaseModel">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.BaseModel">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">BaseModel</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">database</span> <span class="o">=</span> <span class="n">db</span></div>
+
+
+<div class="viewcode-block" id="Usuario">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.Usuario">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Usuario</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">usuario</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>  </div>
+
+
+<div class="viewcode-block" id="Pacientes">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.Pacientes">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Pacientes</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">num_hc</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">(</span><span class="n">unique</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">nombre</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+    <span class="n">apellido</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+    <span class="n">sexo</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+    <span class="n">edad</span> <span class="o">=</span> <span class="n">IntegerField</span><span class="p">()</span>
+    <span class="n">ms_afec</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+    <span class="n">ingreso</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+    <span class="n">alta</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+    <span class="n">diabetes</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">hipotir</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">climaterio</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">queloide</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">depresion</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">conflictos</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ansiedad</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">fumador</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">sesiones</span> <span class="o">=</span> <span class="n">IntegerField</span><span class="p">()</span>
+    <span class="n">funcionalidad</span> <span class="o">=</span> <span class="n">IntegerField</span><span class="p">()</span>
+    <span class="n">dolor</span> <span class="o">=</span> <span class="n">IntegerField</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Sesiones">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.Sesiones">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Sesiones</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">num_hc</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+    <span class="n">nombre</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+    <span class="n">apellido</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+    <span class="n">fecha</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">))</span>
+    <span class="n">sesiones</span> <span class="o">=</span> <span class="n">IntegerField</span><span class="p">()</span>
+    <span class="n">funcionalidad</span> <span class="o">=</span> <span class="n">IntegerField</span><span class="p">()</span>
+    <span class="n">dolor</span> <span class="o">=</span> <span class="n">IntegerField</span><span class="p">()</span>
+    <span class="n">imagen_path</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="iniciar_bd">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.iniciar_bd">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">iniciar_bd</span><span class="p">():</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">create_tables</span><span class="p">([</span><span class="n">Usuario</span><span class="p">,</span> <span class="n">Pacientes</span><span class="p">,</span> <span class="n">Sesiones</span><span class="p">],</span> <span class="n">safe</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  </div>
+
+
+<div class="viewcode-block" id="Paciente">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.Paciente">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Paciente</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observadores</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="Paciente.agregar">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.Paciente.agregar">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">agregar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observador</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observadores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">observador</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Paciente.notificar">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.Paciente.notificar">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">notificar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">obs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observadores</span><span class="p">:</span>
+            <span class="n">obs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="DataBase">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DataBase</span><span class="p">(</span><span class="n">Sujeto</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page</span> <span class="o">=</span> <span class="n">page</span>
+
+<div class="viewcode-block" id="DataBase.registrar_usuario">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase.registrar_usuario">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">registrar_usuario</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">usuario</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Usuario</span><span class="o">.</span><span class="n">usuario</span> <span class="o">==</span> <span class="n">usuario</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+                <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;❌ Usuario ya existe&quot;</span>
+           
+            <span class="n">Usuario</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">usuario</span><span class="o">=</span><span class="n">usuario</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;✅ Usuario registrado con éxito&quot;</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+        
+<div class="viewcode-block" id="DataBase.validar_usuario">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase.validar_usuario">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validar_usuario</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">usuario</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Verifica si el usuario y la contraseña existen en la base de datos.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">usuario_db</span> <span class="o">=</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+                <span class="n">Usuario</span><span class="o">.</span><span class="n">usuario</span> <span class="o">==</span> <span class="n">usuario</span><span class="p">,</span>
+                <span class="n">Usuario</span><span class="o">.</span><span class="n">password</span> <span class="o">==</span> <span class="n">password</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">usuario_db</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="DataBase.insertar_en_sesiones">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase.insertar_en_sesiones">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">insertar_en_sesiones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">datos</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">campos_clave</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;num_hc&quot;</span><span class="p">,</span> <span class="s2">&quot;nombre&quot;</span><span class="p">,</span> <span class="s2">&quot;apellido&quot;</span><span class="p">,</span> <span class="s2">&quot;sesiones&quot;</span><span class="p">,</span> <span class="s2">&quot;funcionalidad&quot;</span><span class="p">,</span> <span class="s2">&quot;dolor&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">campo</span> <span class="ow">in</span> <span class="n">campos_clave</span><span class="p">:</span>
+                <span class="n">valor</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">campo</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">valor</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Campo obligatorio faltante: </span><span class="si">{</span><span class="n">campo</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">valor</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">valor</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Campo obligatorio vacío: </span><span class="si">{</span><span class="n">campo</span><span class="si">}</span><span class="s2">&quot;</span>
+
+            <span class="k">if</span> <span class="s2">&quot;fecha&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">datos</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">datos</span><span class="p">[</span><span class="s2">&quot;fecha&quot;</span><span class="p">]:</span>
+                <span class="n">datos</span><span class="p">[</span><span class="s2">&quot;fecha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span>
+
+            <span class="n">Sesiones</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">**</span><span class="n">datos</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Sesión insertada correctamente&quot;</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Error al insertar sesión: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+
+<div class="viewcode-block" id="DataBase.insertar_paciente_si_no_existe">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase.insertar_paciente_si_no_existe">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">insertar_paciente_si_no_existe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">datos</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">Pacientes</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Pacientes</span><span class="o">.</span><span class="n">num_hc</span> <span class="o">==</span> <span class="n">datos</span><span class="p">[</span><span class="s1">&#39;num_hc&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">Paciente_existe</span><span class="p">(</span><span class="s2">&quot;Ya existe un paciente con ese número de HC&quot;</span><span class="p">)</span>
+
+        <span class="n">Pacientes</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">**</span><span class="n">datos</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notificar</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span><span class="s2">&quot;ingreso&quot;</span><span class="p">],</span> <span class="n">datos</span><span class="p">[</span><span class="s2">&quot;num_hc&quot;</span><span class="p">],</span> <span class="n">datos</span><span class="p">[</span><span class="s2">&quot;apellido&quot;</span><span class="p">])</span>
+
+        <span class="k">return</span> </div>
+
+    
+<div class="viewcode-block" id="DataBase.obtener_sesiones">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase.obtener_sesiones">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">obtener_sesiones</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Sesiones</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>    </div>
+
+
+<div class="viewcode-block" id="DataBase.obtener_pacientes">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase.obtener_pacientes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">obtener_pacientes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Pacientes</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">dicts</span><span class="p">()</span></div>
+
+    
+<div class="viewcode-block" id="DataBase.borrar_paciente">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase.borrar_paciente">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">borrar_paciente</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_paciente</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">paciente</span> <span class="o">=</span> <span class="n">Pacientes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Pacientes</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">id_paciente</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">paciente</span><span class="p">:</span>
+                <span class="n">paciente</span><span class="o">.</span><span class="n">delete_instance</span><span class="p">()</span>
+                <span class="k">return</span> 
+            
+        <span class="k">except</span> <span class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">Paciente_no_existe</span><span class="p">()</span></div>
+
+    
+<div class="viewcode-block" id="DataBase.borrar_fila_sesion">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase.borrar_fila_sesion">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">borrar_fila_sesion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_sesion</span><span class="p">):</span> 
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">sesion</span> <span class="o">=</span> <span class="n">Sesiones</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Sesiones</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">id_sesion</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">sesion</span><span class="p">:</span>
+                <span class="n">sesion</span><span class="o">.</span><span class="n">delete_instance</span><span class="p">()</span>
+                <span class="k">return</span> 
+            
+        <span class="k">except</span> <span class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">Sesion_no_existe</span><span class="p">()</span></div>
+
+    
+<div class="viewcode-block" id="DataBase.consultar_paciente">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase.consultar_paciente">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">consultar_paciente</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_hc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">apellido</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">num_hc</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Pacientes</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Pacientes</span><span class="o">.</span><span class="n">num_hc</span> <span class="o">==</span> <span class="n">num_hc</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">apellido</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Pacientes</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Pacientes</span><span class="o">.</span><span class="n">apellido</span> <span class="o">==</span> <span class="n">apellido</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span></div>
+
+
+<div class="viewcode-block" id="DataBase.obtener_datos_paciente_por_hc_apellido">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase.obtener_datos_paciente_por_hc_apellido">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">obtener_datos_paciente_por_hc_apellido</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">hc_buscado</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">apellido_buscado</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">hc_buscado</span><span class="p">:</span>
+           <span class="k">return</span> <span class="n">Pacientes</span><span class="o">.</span><span class="n">get_or_none</span><span class="p">(</span><span class="n">Pacientes</span><span class="o">.</span><span class="n">num_hc</span> <span class="o">==</span> <span class="n">hc_buscado</span><span class="p">)</span>
+        
+        <span class="k">elif</span> <span class="n">apellido_buscado</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Pacientes</span><span class="o">.</span><span class="n">get_or_none</span><span class="p">(</span><span class="n">Pacientes</span><span class="o">.</span><span class="n">apellido</span> <span class="o">==</span> <span class="n">apellido_buscado</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+    
+<div class="viewcode-block" id="DataBase.obtener_datos_paciente_por_id">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase.obtener_datos_paciente_por_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">obtener_datos_paciente_por_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_a_modificar</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Pacientes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Pacientes</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">id_a_modificar</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="DataBase.actualizar_paciente_en_base">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase.actualizar_paciente_en_base">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">actualizar_paciente_en_base</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mi_id</span><span class="p">,</span> <span class="n">valores</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Actualiza la base y verifica que la fila seleccionada y modificada no repita un número</span>
+<span class="sd">        de H.C. antes de aplicar los cambios.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">paciente</span> <span class="o">=</span> <span class="n">Pacientes</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="n">mi_id</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">Pacientes</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Pacientes</span><span class="o">.</span><span class="n">num_hc</span> <span class="o">==</span> <span class="n">valores</span><span class="p">[</span><span class="s1">&#39;num_hc&#39;</span><span class="p">],</span> <span class="n">Pacientes</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="n">mi_id</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="n">HC_duplicada</span><span class="p">()</span>
+
+            <span class="k">for</span> <span class="n">campo</span><span class="p">,</span> <span class="n">valor</span> <span class="ow">in</span> <span class="n">valores</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="n">paciente</span><span class="p">,</span> <span class="n">campo</span><span class="p">,</span> <span class="n">valor</span><span class="p">)</span>
+
+            <span class="n">paciente</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Paciente actualizado correctamente&quot;</span> 
+
+        <span class="k">except</span> <span class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">Paciente_no_existe</span><span class="p">()</span>
+        
+        <span class="k">except</span> <span class="n">HC_duplicada</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Número de HC duplicado&quot;</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">Error_interno_db</span></div>
+
+        
+<div class="viewcode-block" id="DataBase.obtener_historial_sesiones">
+<a class="viewcode-back" href="../modelo_13.html#modelo_13.DataBase.obtener_historial_sesiones">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">obtener_historial_sesiones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hc_buscado</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">apellido_buscado</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filtra las filas para mostrar en la pantalla solo las</span>
+<span class="sd">        del paciente seleccionado (por número de HC o apellido).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="n">Sesiones</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">hc_buscado</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Sesiones</span><span class="o">.</span><span class="n">num_hc</span> <span class="o">==</span> <span class="n">hc_buscado</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">apellido_buscado</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Sesiones</span><span class="o">.</span><span class="n">apellido</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">apellido_buscado</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">query</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Miguel Arrondo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo de excepciones (clases_try) &mdash; T.P. Nivel Avanzado - Miguel Arrondo - Documentación</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Módulo Clase botones (cls_boton)" href="cls_boton.html" />
+    <link rel="prev" title="Módulo Vista (vista_13)" href="vista_13.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+                <a href="index.html" class="nav-home-link">
+    <img src="_static/utn.png" alt="Inicio" class="nav-home-icon">
+    Diplomatura Python<br>T.P. Nivel Avanzado<br>Miguel Arrondo
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="controlador_13.html">"Módulo Controlador (controlador_13)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelo_13.html">"Módulo Modelo (modelo_13)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vista_13.html">"Módulo de la Vista (vista_13)"</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">"Módulo de excepciones (clases_try)"</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#clases_try.Error_interno_db"><code class="docutils literal notranslate"><span class="pre">Error_interno_db</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clases_try.HC_duplicada"><code class="docutils literal notranslate"><span class="pre">HC_duplicada</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clases_try.Paciente_existe"><code class="docutils literal notranslate"><span class="pre">Paciente_existe</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clases_try.Paciente_no_existe"><code class="docutils literal notranslate"><span class="pre">Paciente_no_existe</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clases_try.Sesion_no_existe"><code class="docutils literal notranslate"><span class="pre">Sesion_no_existe</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clases_try.Usuario_pass_incorrecto"><code class="docutils literal notranslate"><span class="pre">Usuario_pass_incorrecto</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cls_boton.html">"Módulo Clase botones (cls_boton)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decoradores.html">"Módulo decoradores (decoradores)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observador.html">"Módulo patrón observador (observador)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex_file.html">"Módulo de expresiones regulares (regex_file)"</a></li>
+
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">T.P. Nivel Avanzado - Miguel Arrondo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+ 
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-clases_try">
+<span id="clases-try-module"></span><h1>"Módulo de excepciones (clases_try)"<a class="headerlink" href="#module-clases_try" title="Link to this heading"></a></h1>
+<p>Clases excepciones (heredan de Exception)</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="clases_try.Error_interno_db">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clases_try.</span></span><span class="sig-name descname"><span class="pre">Error_interno_db</span></span><a class="reference internal" href="_modules/clases_try.html#Error_interno_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clases_try.Error_interno_db" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="clases_try.HC_duplicada">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clases_try.</span></span><span class="sig-name descname"><span class="pre">HC_duplicada</span></span><a class="reference internal" href="_modules/clases_try.html#HC_duplicada"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clases_try.HC_duplicada" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="clases_try.Paciente_existe">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clases_try.</span></span><span class="sig-name descname"><span class="pre">Paciente_existe</span></span><a class="reference internal" href="_modules/clases_try.html#Paciente_existe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clases_try.Paciente_existe" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="clases_try.Paciente_no_existe">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clases_try.</span></span><span class="sig-name descname"><span class="pre">Paciente_no_existe</span></span><a class="reference internal" href="_modules/clases_try.html#Paciente_no_existe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clases_try.Paciente_no_existe" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="clases_try.Sesion_no_existe">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clases_try.</span></span><span class="sig-name descname"><span class="pre">Sesion_no_existe</span></span><a class="reference internal" href="_modules/clases_try.html#Sesion_no_existe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clases_try.Sesion_no_existe" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="clases_try.Usuario_pass_incorrecto">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clases_try.</span></span><span class="sig-name descname"><span class="pre">Usuario_pass_incorrecto</span></span><a class="reference internal" href="_modules/clases_try.html#Usuario_pass_incorrecto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clases_try.Usuario_pass_incorrecto" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="vista_13.html" class="btn btn-neutral float-left" title="vista_13 module"   accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        
+      <a href="cls_boton.html" class="btn btn-neutral float-right" title="Módulo Clase botones (cls_boton)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Miguel Arrondo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

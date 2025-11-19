@@ -1,0 +1,7 @@
+regex\_file module
+==================
+
+.. automodule:: regex_file
+   :members:
+   :show-inheritance:
+   :undoc-members:

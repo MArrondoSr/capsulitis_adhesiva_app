@@ -1,0 +1,7 @@
+decoradores module
+==================
+
+.. automodule:: decoradores
+   :members:
+   :show-inheritance:
+   :undoc-members:

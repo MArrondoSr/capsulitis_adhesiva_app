@@ -1,0 +1,497 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"Módulo Modelo (modelo_13)" &mdash; T.P. Nivel Avanzado - Miguel Arrondo - Documentación</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="vista_13 module" href="vista_13.html" />
+    <link rel="prev" title="controlador_13 module" href="controlador_13.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+               <a href="index.html" class="nav-home-link">
+    <img src="_static/utn.png" alt="Inicio" class="nav-home-icon">
+    Diplomatura Python<br>T.P. Nivel Avanzado<br>Miguel Arrondo
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="controlador_13.html">"Módulo Controlador (controlador_13)"</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">"Módulo Modelo (modelo_13)"</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modelo_13.BaseModel"><code class="docutils literal notranslate"><span class="pre">BaseModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.BaseModel.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">BaseModel.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.BaseModel.id"><code class="docutils literal notranslate"><span class="pre">BaseModel.id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo_13.DataBase"><code class="docutils literal notranslate"><span class="pre">DataBase</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.DataBase.actualizar_paciente_en_base"><code class="docutils literal notranslate"><span class="pre">DataBase.actualizar_paciente_en_base()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.DataBase.borrar_fila_sesion"><code class="docutils literal notranslate"><span class="pre">DataBase.borrar_fila_sesion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.DataBase.borrar_paciente"><code class="docutils literal notranslate"><span class="pre">DataBase.borrar_paciente()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.DataBase.consultar_paciente"><code class="docutils literal notranslate"><span class="pre">DataBase.consultar_paciente()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.DataBase.insertar_en_sesiones"><code class="docutils literal notranslate"><span class="pre">DataBase.insertar_en_sesiones()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.DataBase.insertar_paciente_si_no_existe"><code class="docutils literal notranslate"><span class="pre">DataBase.insertar_paciente_si_no_existe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.DataBase.obtener_datos_paciente_por_hc_apellido"><code class="docutils literal notranslate"><span class="pre">DataBase.obtener_datos_paciente_por_hc_apellido()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.DataBase.obtener_datos_paciente_por_id"><code class="docutils literal notranslate"><span class="pre">DataBase.obtener_datos_paciente_por_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.DataBase.obtener_historial_sesiones"><code class="docutils literal notranslate"><span class="pre">DataBase.obtener_historial_sesiones()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.DataBase.obtener_pacientes"><code class="docutils literal notranslate"><span class="pre">DataBase.obtener_pacientes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.DataBase.obtener_sesiones"><code class="docutils literal notranslate"><span class="pre">DataBase.obtener_sesiones()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.DataBase.registrar_usuario"><code class="docutils literal notranslate"><span class="pre">DataBase.registrar_usuario()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.DataBase.validar_usuario"><code class="docutils literal notranslate"><span class="pre">DataBase.validar_usuario()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo_13.Paciente"><code class="docutils literal notranslate"><span class="pre">Paciente</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Paciente.agregar"><code class="docutils literal notranslate"><span class="pre">Paciente.agregar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Paciente.notificar"><code class="docutils literal notranslate"><span class="pre">Paciente.notificar()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo_13.Pacientes"><code class="docutils literal notranslate"><span class="pre">Pacientes</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Pacientes.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.alta"><code class="docutils literal notranslate"><span class="pre">Pacientes.alta</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.ansiedad"><code class="docutils literal notranslate"><span class="pre">Pacientes.ansiedad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.apellido"><code class="docutils literal notranslate"><span class="pre">Pacientes.apellido</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.climaterio"><code class="docutils literal notranslate"><span class="pre">Pacientes.climaterio</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.conflictos"><code class="docutils literal notranslate"><span class="pre">Pacientes.conflictos</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.depresion"><code class="docutils literal notranslate"><span class="pre">Pacientes.depresion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.diabetes"><code class="docutils literal notranslate"><span class="pre">Pacientes.diabetes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.dolor"><code class="docutils literal notranslate"><span class="pre">Pacientes.dolor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.edad"><code class="docutils literal notranslate"><span class="pre">Pacientes.edad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.fumador"><code class="docutils literal notranslate"><span class="pre">Pacientes.fumador</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.funcionalidad"><code class="docutils literal notranslate"><span class="pre">Pacientes.funcionalidad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.hipotir"><code class="docutils literal notranslate"><span class="pre">Pacientes.hipotir</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.id"><code class="docutils literal notranslate"><span class="pre">Pacientes.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.ingreso"><code class="docutils literal notranslate"><span class="pre">Pacientes.ingreso</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.ms_afec"><code class="docutils literal notranslate"><span class="pre">Pacientes.ms_afec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.nombre"><code class="docutils literal notranslate"><span class="pre">Pacientes.nombre</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.num_hc"><code class="docutils literal notranslate"><span class="pre">Pacientes.num_hc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.queloide"><code class="docutils literal notranslate"><span class="pre">Pacientes.queloide</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.sesiones"><code class="docutils literal notranslate"><span class="pre">Pacientes.sesiones</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Pacientes.sexo"><code class="docutils literal notranslate"><span class="pre">Pacientes.sexo</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo_13.Sesiones"><code class="docutils literal notranslate"><span class="pre">Sesiones</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Sesiones.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Sesiones.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Sesiones.apellido"><code class="docutils literal notranslate"><span class="pre">Sesiones.apellido</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Sesiones.dolor"><code class="docutils literal notranslate"><span class="pre">Sesiones.dolor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Sesiones.fecha"><code class="docutils literal notranslate"><span class="pre">Sesiones.fecha</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Sesiones.funcionalidad"><code class="docutils literal notranslate"><span class="pre">Sesiones.funcionalidad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Sesiones.id"><code class="docutils literal notranslate"><span class="pre">Sesiones.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Sesiones.imagen_path"><code class="docutils literal notranslate"><span class="pre">Sesiones.imagen_path</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Sesiones.nombre"><code class="docutils literal notranslate"><span class="pre">Sesiones.nombre</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Sesiones.num_hc"><code class="docutils literal notranslate"><span class="pre">Sesiones.num_hc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Sesiones.sesiones"><code class="docutils literal notranslate"><span class="pre">Sesiones.sesiones</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo_13.Usuario"><code class="docutils literal notranslate"><span class="pre">Usuario</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Usuario.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Usuario.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Usuario.id"><code class="docutils literal notranslate"><span class="pre">Usuario.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Usuario.password"><code class="docutils literal notranslate"><span class="pre">Usuario.password</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo_13.Usuario.usuario"><code class="docutils literal notranslate"><span class="pre">Usuario.usuario</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo_13.iniciar_bd"><code class="docutils literal notranslate"><span class="pre">iniciar_bd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vista_13.html">"Módulo de la Vista (vista_13)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clases_try.html">"Módulo de excepciones (clases_try)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cls_boton.html">"Módulo Clase botones (cls_boton)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decoradores.html">"Módulo decoradores (decoradores)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observador.html">"Módulo patrón observador (observador)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex_file.html">"Módulo de expresiones regulares (regex_file)"</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">T.P. Nivel Avanzado - Miguel Arrondo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-modelo_13">
+<span id="modelo-13-module"></span><h1>"Módulo Modelo (modelo_13)"<a class="headerlink" href="#module-modelo_13" title="Link to this heading"></a></h1>
+<p>MODELO: crea la base Sqlite si no existe y en ella tres tablas (Usuario, Pacientes y Sesiones).
+En la primera se guardan los usuarios y contraseñas habilitados. Las otras dos están relacionadas: cuando se modifica una fila en Pacientes
+se genera una nueva fila de ese paciente en Sesiones.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo_13.BaseModel">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo_13.</span></span><span class="sig-name descname"><span class="pre">BaseModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#BaseModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.BaseModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.BaseModel.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#modelo_13.BaseModel.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.BaseModel.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">BaseModel.id&gt;</span></em><a class="headerlink" href="#modelo_13.BaseModel.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo_13.DataBase">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo_13.</span></span><span class="sig-name descname"><span class="pre">DataBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">page</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="observador.html#observador.Sujeto" title="observador.Sujeto"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sujeto</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.DataBase.actualizar_paciente_en_base">
+<span class="sig-name descname"><span class="pre">actualizar_paciente_en_base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mi_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valores</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase.actualizar_paciente_en_base"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase.actualizar_paciente_en_base" title="Link to this definition"></a></dt>
+<dd><p>Actualiza la base y verifica que la fila seleccionada y modificada no repita un número
+de H.C. antes de aplicar los cambios.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.DataBase.borrar_fila_sesion">
+<span class="sig-name descname"><span class="pre">borrar_fila_sesion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_sesion</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase.borrar_fila_sesion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase.borrar_fila_sesion" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.DataBase.borrar_paciente">
+<span class="sig-name descname"><span class="pre">borrar_paciente</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_paciente</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase.borrar_paciente"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase.borrar_paciente" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.DataBase.consultar_paciente">
+<span class="sig-name descname"><span class="pre">consultar_paciente</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_hc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apellido</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase.consultar_paciente"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase.consultar_paciente" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.DataBase.insertar_en_sesiones">
+<span class="sig-name descname"><span class="pre">insertar_en_sesiones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">datos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase.insertar_en_sesiones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase.insertar_en_sesiones" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.DataBase.insertar_paciente_si_no_existe">
+<span class="sig-name descname"><span class="pre">insertar_paciente_si_no_existe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">datos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase.insertar_paciente_si_no_existe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase.insertar_paciente_si_no_existe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.DataBase.obtener_datos_paciente_por_hc_apellido">
+<span class="sig-name descname"><span class="pre">obtener_datos_paciente_por_hc_apellido</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hc_buscado</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apellido_buscado</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase.obtener_datos_paciente_por_hc_apellido"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase.obtener_datos_paciente_por_hc_apellido" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.DataBase.obtener_datos_paciente_por_id">
+<span class="sig-name descname"><span class="pre">obtener_datos_paciente_por_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_a_modificar</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase.obtener_datos_paciente_por_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase.obtener_datos_paciente_por_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.DataBase.obtener_historial_sesiones">
+<span class="sig-name descname"><span class="pre">obtener_historial_sesiones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hc_buscado</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apellido_buscado</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase.obtener_historial_sesiones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase.obtener_historial_sesiones" title="Link to this definition"></a></dt>
+<dd><p>Filtra las filas para mostrar en la pantalla solo las
+del paciente seleccionado (por número de HC o apellido).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.DataBase.obtener_pacientes">
+<span class="sig-name descname"><span class="pre">obtener_pacientes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase.obtener_pacientes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase.obtener_pacientes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.DataBase.obtener_sesiones">
+<span class="sig-name descname"><span class="pre">obtener_sesiones</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase.obtener_sesiones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase.obtener_sesiones" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.DataBase.registrar_usuario">
+<span class="sig-name descname"><span class="pre">registrar_usuario</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">usuario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase.registrar_usuario"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase.registrar_usuario" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.DataBase.validar_usuario">
+<span class="sig-name descname"><span class="pre">validar_usuario</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">usuario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#DataBase.validar_usuario"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.DataBase.validar_usuario" title="Link to this definition"></a></dt>
+<dd><p>Verifica si el usuario y la contraseña existen en la base de datos.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo_13.Paciente">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo_13.</span></span><span class="sig-name descname"><span class="pre">Paciente</span></span><a class="reference internal" href="_modules/modelo_13.html#Paciente"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.Paciente" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.Paciente.agregar">
+<span class="sig-name descname"><span class="pre">agregar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observador</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#Paciente.agregar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.Paciente.agregar" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo_13.Paciente.notificar">
+<span class="sig-name descname"><span class="pre">notificar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#Paciente.notificar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.Paciente.notificar" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo_13.Pacientes">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo_13.</span></span><span class="sig-name descname"><span class="pre">Pacientes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#Pacientes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.Pacientes" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelo_13.BaseModel" title="modelo_13.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#modelo_13.Pacientes.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">PacientesDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.alta">
+<span class="sig-name descname"><span class="pre">alta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Pacientes.alta&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.alta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.ansiedad">
+<span class="sig-name descname"><span class="pre">ansiedad</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BooleanField:</span> <span class="pre">Pacientes.ansiedad&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.ansiedad" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.apellido">
+<span class="sig-name descname"><span class="pre">apellido</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Pacientes.apellido&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.apellido" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.climaterio">
+<span class="sig-name descname"><span class="pre">climaterio</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BooleanField:</span> <span class="pre">Pacientes.climaterio&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.climaterio" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.conflictos">
+<span class="sig-name descname"><span class="pre">conflictos</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BooleanField:</span> <span class="pre">Pacientes.conflictos&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.conflictos" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.depresion">
+<span class="sig-name descname"><span class="pre">depresion</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BooleanField:</span> <span class="pre">Pacientes.depresion&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.depresion" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.diabetes">
+<span class="sig-name descname"><span class="pre">diabetes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BooleanField:</span> <span class="pre">Pacientes.diabetes&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.diabetes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.dolor">
+<span class="sig-name descname"><span class="pre">dolor</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;IntegerField:</span> <span class="pre">Pacientes.dolor&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.dolor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.edad">
+<span class="sig-name descname"><span class="pre">edad</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;IntegerField:</span> <span class="pre">Pacientes.edad&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.edad" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.fumador">
+<span class="sig-name descname"><span class="pre">fumador</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BooleanField:</span> <span class="pre">Pacientes.fumador&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.fumador" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.funcionalidad">
+<span class="sig-name descname"><span class="pre">funcionalidad</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;IntegerField:</span> <span class="pre">Pacientes.funcionalidad&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.funcionalidad" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.hipotir">
+<span class="sig-name descname"><span class="pre">hipotir</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BooleanField:</span> <span class="pre">Pacientes.hipotir&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.hipotir" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">Pacientes.id&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.ingreso">
+<span class="sig-name descname"><span class="pre">ingreso</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Pacientes.ingreso&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.ingreso" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.ms_afec">
+<span class="sig-name descname"><span class="pre">ms_afec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Pacientes.ms_afec&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.ms_afec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.nombre">
+<span class="sig-name descname"><span class="pre">nombre</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Pacientes.nombre&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.nombre" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.num_hc">
+<span class="sig-name descname"><span class="pre">num_hc</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Pacientes.num_hc&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.num_hc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.queloide">
+<span class="sig-name descname"><span class="pre">queloide</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BooleanField:</span> <span class="pre">Pacientes.queloide&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.queloide" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.sesiones">
+<span class="sig-name descname"><span class="pre">sesiones</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;IntegerField:</span> <span class="pre">Pacientes.sesiones&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.sesiones" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Pacientes.sexo">
+<span class="sig-name descname"><span class="pre">sexo</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Pacientes.sexo&gt;</span></em><a class="headerlink" href="#modelo_13.Pacientes.sexo" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo_13.Sesiones">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo_13.</span></span><span class="sig-name descname"><span class="pre">Sesiones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#Sesiones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.Sesiones" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelo_13.BaseModel" title="modelo_13.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Sesiones.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#modelo_13.Sesiones.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">SesionesDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Sesiones.apellido">
+<span class="sig-name descname"><span class="pre">apellido</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Sesiones.apellido&gt;</span></em><a class="headerlink" href="#modelo_13.Sesiones.apellido" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Sesiones.dolor">
+<span class="sig-name descname"><span class="pre">dolor</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;IntegerField:</span> <span class="pre">Sesiones.dolor&gt;</span></em><a class="headerlink" href="#modelo_13.Sesiones.dolor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Sesiones.fecha">
+<span class="sig-name descname"><span class="pre">fecha</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Sesiones.fecha&gt;</span></em><a class="headerlink" href="#modelo_13.Sesiones.fecha" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Sesiones.funcionalidad">
+<span class="sig-name descname"><span class="pre">funcionalidad</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;IntegerField:</span> <span class="pre">Sesiones.funcionalidad&gt;</span></em><a class="headerlink" href="#modelo_13.Sesiones.funcionalidad" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Sesiones.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">Sesiones.id&gt;</span></em><a class="headerlink" href="#modelo_13.Sesiones.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Sesiones.imagen_path">
+<span class="sig-name descname"><span class="pre">imagen_path</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Sesiones.imagen_path&gt;</span></em><a class="headerlink" href="#modelo_13.Sesiones.imagen_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Sesiones.nombre">
+<span class="sig-name descname"><span class="pre">nombre</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Sesiones.nombre&gt;</span></em><a class="headerlink" href="#modelo_13.Sesiones.nombre" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Sesiones.num_hc">
+<span class="sig-name descname"><span class="pre">num_hc</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Sesiones.num_hc&gt;</span></em><a class="headerlink" href="#modelo_13.Sesiones.num_hc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Sesiones.sesiones">
+<span class="sig-name descname"><span class="pre">sesiones</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;IntegerField:</span> <span class="pre">Sesiones.sesiones&gt;</span></em><a class="headerlink" href="#modelo_13.Sesiones.sesiones" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo_13.Usuario">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo_13.</span></span><span class="sig-name descname"><span class="pre">Usuario</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#Usuario"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.Usuario" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelo_13.BaseModel" title="modelo_13.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Usuario.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#modelo_13.Usuario.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">UsuarioDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Usuario.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">Usuario.id&gt;</span></em><a class="headerlink" href="#modelo_13.Usuario.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Usuario.password">
+<span class="sig-name descname"><span class="pre">password</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Usuario.password&gt;</span></em><a class="headerlink" href="#modelo_13.Usuario.password" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo_13.Usuario.usuario">
+<span class="sig-name descname"><span class="pre">usuario</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Usuario.usuario&gt;</span></em><a class="headerlink" href="#modelo_13.Usuario.usuario" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelo_13.iniciar_bd">
+<span class="sig-prename descclassname"><span class="pre">modelo_13.</span></span><span class="sig-name descname"><span class="pre">iniciar_bd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo_13.html#iniciar_bd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo_13.iniciar_bd" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="controlador_13.html" class="btn btn-neutral float-left" title="controlador_13 module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vista_13.html" class="btn btn-neutral float-right" title="vista_13 module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Miguel Arrondo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

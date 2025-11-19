@@ -1,0 +1,11 @@
+[2025-07-25 18:08:48] Alta registrada en fecha 14-07-2025. Paciente H.C. 2001, apellido: Perez
+[2025-07-25 18:09:55] Alta registrada en fecha 15-07-2025. Paciente H.C. 2002, apellido: Gomez
+[2025-07-25 18:11:15] Alta registrada en fecha 16-07-2025. Paciente H.C. 2003, apellido: Vozza
+[2025-07-25 18:25:08] Alta registrada en fecha 25-07-2025. Paciente H.C. 2300, apellido: ccc
+[2025-07-29 10:38:12] Alta registrada en fecha 29-07-2025. Paciente H.C. 3000, apellido: bbbb
+[2025-08-05 12:58:59] Alta registrada en fecha 17-07-2025. Paciente H.C. 2003, apellido: Eden
+[2025-08-05 13:00:09] Alta registrada en fecha 17-07-2025. Paciente H.C. 2004, apellido: Bolena
+[2025-08-05 13:01:31] Alta registrada en fecha 18-07-2025. Paciente H.C. 2005, apellido: Petruzza
+[2025-08-05 13:02:41] Alta registrada en fecha 21-07-2025. Paciente H.C. 2006, apellido: Carambata
+[2025-08-05 13:03:47] Alta registrada en fecha 22-07-2025. Paciente H.C. 2007, apellido: Pedraza
+[2025-08-06 20:01:08] Alta registrada en fecha 28-07-2025. Paciente H.C. 2008, apellido: Garqueta

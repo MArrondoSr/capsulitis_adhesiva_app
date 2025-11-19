@@ -1,0 +1,7 @@
+vista\_13 module
+================
+
+.. automodule:: vista_13
+   :members:
+   :show-inheritance:
+   :undoc-members:

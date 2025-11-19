@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>controlador_13 &mdash; T.P. Nivel Avanzado - Miguel Arrondo - Documentación</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+            <a href="index.html" class="nav-home-link">
+    <img src="_static/utn.png" alt="Inicio" class="nav-home-icon">
+    Diplomatura Python<br>T.P. Nivel Avanzado<br>Miguel Arrondo
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Indice de Códigos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="controlador_13.html">"Módulo Controlador (controlador_13)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelo_13.html">"Módulo Modelo (modelo_13)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vista_13.html">"Módulo de la Vista (vista_13)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clases_try.html">"Módulo de excepciones (clases_try)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cls_boton.html">"Módulo Clase botones (cls_boton)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decoradores.html">"Módulo decoradores (decoradores)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observador.html">"Módulo patrón observador (observador)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex_file.html">"Módulo de expresiones regulares (regex_file)"</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">T.P. Nivel Avanzado - Miguel Arrondo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente de controlador_13</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;CONTROLADOR: crea una ventana para loguearse a la aplicación y pasar a la ventana principal (Pacientes).</span>
+<span class="sd">Se asegura de que las ventanas de Flet estén funcionales antes de ser visibles, para evitar errores.</span>
+<span class="sd">Un decorador en el botón de ingreso registra el usuario y la fecha de cada login en un archivo .txt&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">flet</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ft</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vista_13</span><span class="w"> </span><span class="kn">import</span> <span class="n">VistaDos</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">modelo_13</span><span class="w"> </span><span class="kn">import</span> <span class="n">iniciar_bd</span><span class="p">,</span> <span class="n">DataBase</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cls_boton</span><span class="w"> </span><span class="kn">import</span> <span class="n">Boton002</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">decoradores</span><span class="w"> </span><span class="kn">import</span> <span class="n">indicador_login</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">clases_try</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">observador</span>
+
+<div class="viewcode-block" id="Controlador">
+<a class="viewcode-back" href="../controlador_13.html#controlador_13.Controlador">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Controlador</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Esta es la clase principal</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root_controlador</span> <span class="o">=</span> <span class="n">root</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obj_db</span> <span class="o">=</span> <span class="n">VistaDos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_controlador</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">el_observador</span> <span class="o">=</span> <span class="n">observador</span><span class="o">.</span><span class="n">ConcreteObserverA</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj_db</span><span class="o">.</span><span class="n">obj_db</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Controlador.main">
+<a class="viewcode-back" href="../controlador_13.html#controlador_13.Controlador.main">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="n">ft</span><span class="o">.</span><span class="n">Page</span><span class="p">):</span>
+        <span class="n">page</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
+        <span class="n">iniciar_bd</span><span class="p">()</span>
+
+        <span class="n">vista</span> <span class="o">=</span> <span class="n">VistaDos</span><span class="p">(</span><span class="n">page</span><span class="p">)</span> 
+        <span class="n">observador</span><span class="o">.</span><span class="n">ConcreteObserverA</span><span class="p">(</span><span class="n">vista</span><span class="o">.</span><span class="n">obj_db</span><span class="p">,</span> <span class="n">vista</span><span class="p">)</span>  <span class="c1"># CAMBIO</span>
+
+        <span class="n">obj_db_dos</span> <span class="o">=</span> <span class="n">DataBase</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+
+
+        <span class="n">logueado</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">ingresar_al_sistema</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">usuario</span><span class="p">):</span>
+            <span class="k">nonlocal</span> <span class="n">logueado</span>
+            <span class="n">logueado</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">vista</span><span class="o">.</span><span class="n">route_change</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+            <span class="n">vista</span><span class="o">.</span><span class="n">route_change</span><span class="p">(</span><span class="s2">&quot;/paciente&quot;</span><span class="p">)</span>
+            <span class="n">vista</span><span class="o">.</span><span class="n">route_change</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>  
+            <span class="n">page</span><span class="o">.</span><span class="n">go</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+            
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">login_view</span><span class="p">(</span><span class="n">page</span><span class="p">):</span>
+            <span class="n">page</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;PANTALLA DE LOGIN&quot;</span>
+            
+            <span class="n">usuario_input</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span>
+                <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Usuario&quot;</span><span class="p">,</span> 
+                <span class="n">width</span><span class="o">=</span><span class="mi">250</span>
+            
+            <span class="p">)</span>
+            <span class="n">password_input</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span>
+                <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Contraseña&quot;</span><span class="p">,</span> 
+                <span class="n">password</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                <span class="n">can_reveal_password</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                <span class="n">width</span><span class="o">=</span><span class="mi">250</span>
+            <span class="p">)</span>
+
+            <span class="n">mensaje</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span>
+                <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+                <span class="n">color</span><span class="o">=</span><span class="n">ft</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">RED</span><span class="p">,</span> 
+                <span class="n">font_family</span><span class="o">=</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> 
+                <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> 
+                <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span>
+            <span class="p">)</span>
+
+            <span class="k">def</span><span class="w"> </span><span class="nf">verificar_login</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+                <span class="n">usuario</span> <span class="o">=</span> <span class="n">usuario_input</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">password</span> <span class="o">=</span> <span class="n">password_input</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="n">obj_db_dos</span><span class="o">.</span><span class="n">validar_usuario</span><span class="p">(</span><span class="n">usuario</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+                    <span class="n">funcion_logueo</span> <span class="o">=</span> <span class="n">indicador_login</span><span class="p">(</span><span class="n">usuario_input</span><span class="p">)(</span>
+                        <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="n">ingresar_al_sistema</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">usuario</span><span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="n">funcion_logueo</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">mensaje</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;❌ Usuario o contraseña incorrectos&quot;</span>
+                    <span class="n">mensaje</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">RED</span>
+                    <span class="n">mensaje</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+                        
+            <span class="k">def</span><span class="w"> </span><span class="nf">on_registrar_click</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+                <span class="n">nuevo_usuario</span> <span class="o">=</span> <span class="n">nuevo_usuario_input</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">new_password</span> <span class="o">=</span> <span class="n">new_password_input</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">nuevo_usuario</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">new_password</span><span class="p">:</span>
+                    <span class="n">nuevo_mensaje</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Complete todos los campos&quot;</span>
+                    <span class="n">nuevo_mensaje</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">RED</span>
+                    <span class="n">nuevo_mensaje</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+                    <span class="k">return</span>
+
+                <span class="n">exito</span><span class="p">,</span> <span class="n">mensaje_texto</span> <span class="o">=</span> <span class="n">obj_db_dos</span><span class="o">.</span><span class="n">registrar_usuario</span><span class="p">(</span><span class="n">nuevo_usuario</span><span class="p">,</span> <span class="n">new_password</span><span class="p">)</span>
+                <span class="n">nuevo_mensaje</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">mensaje_texto</span>
+                <span class="n">nuevo_mensaje</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">GREEN</span> <span class="k">if</span> <span class="n">exito</span> <span class="k">else</span> <span class="n">ft</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">RED</span>
+                <span class="n">nuevo_mensaje</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+                
+                <span class="k">if</span> <span class="n">exito</span><span class="p">:</span>
+                    <span class="n">nuevo_usuario_input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                    <span class="n">new_password_input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                    <span class="n">nuevo_usuario_input</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+                    <span class="n">new_password_input</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+            
+            <span class="n">boton_ingresar</span> <span class="o">=</span> <span class="n">Boton002</span><span class="p">(</span>
+                <span class="s2">&quot;INGRESAR&quot;</span><span class="p">,</span> 
+                <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="n">verificar_login</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> 
+                <span class="n">top</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> 
+                <span class="n">left</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                <span class="n">icono</span><span class="o">=</span><span class="n">ft</span><span class="o">.</span><span class="n">Icons</span><span class="o">.</span><span class="n">LOGIN</span>
+            <span class="p">)</span>
+
+            <span class="n">nuevo_usuario_input</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span>
+                <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Nombre de Usuario&quot;</span><span class="p">,</span> 
+                <span class="n">width</span><span class="o">=</span><span class="mi">250</span>
+            
+            <span class="p">)</span>
+            <span class="n">new_password_input</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span>
+                <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Contraseña&quot;</span><span class="p">,</span> 
+                <span class="n">password</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                <span class="n">can_reveal_password</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                <span class="n">width</span><span class="o">=</span><span class="mi">250</span>
+            <span class="p">)</span>
+
+            <span class="n">nuevo_mensaje</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span>
+                <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+                <span class="n">color</span><span class="o">=</span><span class="n">ft</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">GREEN</span><span class="p">,</span> 
+                <span class="n">font_family</span><span class="o">=</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> 
+                <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> 
+                <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span>
+            <span class="p">)</span>
+
+            <span class="n">boton_registrar</span> <span class="o">=</span> <span class="n">Boton002</span><span class="p">(</span>
+                <span class="s2">&quot;REGISTRAR&quot;</span><span class="p">,</span> 
+                <span class="n">on_registrar_click</span><span class="p">,</span> 
+                <span class="n">top</span><span class="o">=</span><span class="mi">560</span><span class="p">,</span> 
+                <span class="n">left</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                <span class="n">icono</span><span class="o">=</span><span class="n">ft</span><span class="o">.</span><span class="n">Icons</span><span class="o">.</span><span class="n">SAVE</span>
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">ft</span><span class="o">.</span><span class="n">View</span><span class="p">(</span>
+                <span class="n">route</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span>
+                <span class="n">controls</span><span class="o">=</span><span class="p">[</span>
+                    <span class="n">ft</span><span class="o">.</span><span class="n">Stack</span><span class="p">(</span>
+                        <span class="n">controls</span><span class="o">=</span><span class="p">[</span>
+                            <span class="n">ft</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span>
+                                <span class="n">content</span><span class="o">=</span><span class="n">ft</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span>
+                                    <span class="s2">&quot;Bienvenido</span><span class="se">\n</span><span class="s2">Ingrese con su Usuario y Contraseña&quot;</span><span class="p">,</span>
+                                    <span class="n">color</span><span class="o">=</span><span class="n">ft</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">BLACK</span><span class="p">,</span>
+                                    <span class="n">font_family</span><span class="o">=</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span>
+                                    <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+                                    <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span>
+                                    <span class="n">text_align</span><span class="o">=</span><span class="n">ft</span><span class="o">.</span><span class="n">TextAlign</span><span class="o">.</span><span class="n">LEFT</span><span class="p">,</span>
+                                <span class="p">),</span>
+                                <span class="n">top</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                                <span class="n">left</span><span class="o">=</span><span class="mi">400</span>
+                            <span class="p">),</span>
+                            <span class="n">ft</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span>
+                                <span class="n">content</span><span class="o">=</span><span class="n">ft</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span>
+                                    <span class="s2">&quot;¿Primer ingreso? Regístrese con un nombre de usuario y una contraseña&quot;</span><span class="p">,</span>
+                                    <span class="n">color</span><span class="o">=</span><span class="n">ft</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">BLACK</span><span class="p">,</span>
+                                    <span class="n">font_family</span><span class="o">=</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span>
+                                    <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+                                    <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span>
+                                    <span class="n">text_align</span><span class="o">=</span><span class="n">ft</span><span class="o">.</span><span class="n">TextAlign</span><span class="o">.</span><span class="n">LEFT</span><span class="p">,</span>
+                                <span class="p">),</span>
+                                <span class="n">top</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+                                <span class="n">left</span><span class="o">=</span><span class="mi">100</span>
+                            <span class="p">),</span>
+                            <span class="n">ft</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">usuario_input</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">),</span>
+                            <span class="n">ft</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">password_input</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">),</span>
+                            <span class="n">ft</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">mensaje</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">220</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">ink_color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">),</span>
+                            <span class="n">boton_ingresar</span><span class="p">,</span>
+                            <span class="n">ft</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">nuevo_usuario_input</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">410</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">),</span>
+                            <span class="n">ft</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">new_password_input</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">470</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">),</span>
+                            <span class="n">ft</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">nuevo_mensaje</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">525</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">ink_color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">),</span>
+                            <span class="n">boton_registrar</span><span class="p">,</span>
+                        <span class="p">],</span>
+                        <span class="n">width</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>
+                        <span class="n">height</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">route_change</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+            <span class="n">page</span><span class="o">.</span><span class="n">views</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">page</span><span class="o">.</span><span class="n">route</span> <span class="o">==</span> <span class="s2">&quot;/login&quot;</span><span class="p">:</span>
+                <span class="n">view</span> <span class="o">=</span> <span class="n">login_view</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+                <span class="n">view</span><span class="o">.</span><span class="n">bgcolor</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">YELLOW_200</span>
+                <span class="n">page</span><span class="o">.</span><span class="n">views</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">page</span><span class="o">.</span><span class="n">route</span> <span class="o">==</span> <span class="s2">&quot;/&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">logueado</span><span class="p">:</span>
+                    <span class="n">page</span><span class="o">.</span><span class="n">go</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">)</span> 
+                    <span class="k">return</span>    
+                <span class="n">stack</span> <span class="o">=</span> <span class="n">vista</span><span class="o">.</span><span class="n">crear_gui</span><span class="p">()</span>
+                <span class="n">view</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">View</span><span class="p">(</span>
+                    <span class="n">route</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> 
+                    <span class="n">controls</span><span class="o">=</span><span class="p">[</span><span class="n">stack</span><span class="p">],</span> 
+                    <span class="n">bgcolor</span><span class="o">=</span><span class="n">ft</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">BLUE_GREY</span>
+                    <span class="p">)</span>
+                <span class="n">page</span><span class="o">.</span><span class="n">views</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+
+                <span class="k">def</span><span class="w"> </span><span class="nf">despues_de_montar</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
+                    <span class="n">vista</span><span class="o">.</span><span class="n">route_change</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+                    <span class="n">page</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+                <span class="n">page</span><span class="o">.</span><span class="n">on_view_pop</span> <span class="o">=</span> <span class="n">despues_de_montar</span>
+
+            <span class="k">elif</span> <span class="n">page</span><span class="o">.</span><span class="n">route</span> <span class="o">==</span> <span class="s2">&quot;/paciente&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">logueado</span><span class="p">:</span>
+                    <span class="n">page</span><span class="o">.</span><span class="n">go</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">)</span> 
+                    <span class="k">return</span>
+                <span class="n">stack</span> <span class="o">=</span> <span class="n">vista</span><span class="o">.</span><span class="n">crear_gui_dos</span><span class="p">()</span>
+                <span class="n">view</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">View</span><span class="p">(</span>
+                    <span class="n">route</span><span class="o">=</span><span class="s2">&quot;/paciente&quot;</span><span class="p">,</span> 
+                    <span class="n">controls</span><span class="o">=</span><span class="p">[</span><span class="n">stack</span><span class="p">],</span> 
+                    <span class="n">bgcolor</span><span class="o">=</span><span class="n">ft</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">ORANGE_200</span>
+                    <span class="p">)</span>
+                <span class="n">page</span><span class="o">.</span><span class="n">views</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+
+                <span class="k">def</span><span class="w"> </span><span class="nf">despues_de_montar_paciente</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
+                    <span class="n">vista</span><span class="o">.</span><span class="n">route_change</span><span class="p">(</span><span class="s2">&quot;/paciente&quot;</span><span class="p">)</span>
+                    <span class="n">page</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+                <span class="n">page</span><span class="o">.</span><span class="n">on_view_pop</span> <span class="o">=</span> <span class="n">despues_de_montar_paciente</span>
+
+            <span class="n">page</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="n">page</span><span class="o">.</span><span class="n">route</span> <span class="o">=</span> <span class="s2">&quot;/login&quot;</span>
+        <span class="n">page</span><span class="o">.</span><span class="n">on_route_change</span> <span class="o">=</span> <span class="n">route_change</span>
+        <span class="n">page</span><span class="o">.</span><span class="n">go</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">)</span></div>
+
+
+
+    <span class="n">ft</span><span class="o">.</span><span class="n">app</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">main</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Miguel Arrondo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

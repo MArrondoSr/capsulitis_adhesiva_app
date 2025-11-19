@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"Módulo de la Vista (vista_13)" &mdash; T.P. Nivel Avanzado - Miguel Arrondo - Documentación</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="clases_try module" href="clases_try.html" />
+    <link rel="prev" title="modelo_13 module" href="modelo_13.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+               <a href="index.html" class="nav-home-link">
+    <img src="_static/utn.png" alt="Inicio" class="nav-home-icon">
+    Diplomatura Python<br>T.P. Nivel Avanzado<br>Miguel Arrondo
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="controlador_13.html">"Módulo Controlador (controlador_13)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelo_13.html">"Módulo Modelo (modelo_13)"</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">"Módulo de la Vista (vista_13)"</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#vista_13.VistaDos"><code class="docutils literal notranslate"><span class="pre">VistaDos</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.abrir_fecha_alta"><code class="docutils literal notranslate"><span class="pre">VistaDos.abrir_fecha_alta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.abrir_fecha_ing"><code class="docutils literal notranslate"><span class="pre">VistaDos.abrir_fecha_ing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.actualizar_datos"><code class="docutils literal notranslate"><span class="pre">VistaDos.actualizar_datos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.agrega_fecha_01"><code class="docutils literal notranslate"><span class="pre">VistaDos.agrega_fecha_01()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.agrega_fecha_02"><code class="docutils literal notranslate"><span class="pre">VistaDos.agrega_fecha_02()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.agregar_fila"><code class="docutils literal notranslate"><span class="pre">VistaDos.agregar_fila()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.archivos_seleccionados"><code class="docutils literal notranslate"><span class="pre">VistaDos.archivos_seleccionados()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.borrar_fila"><code class="docutils literal notranslate"><span class="pre">VistaDos.borrar_fila()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.borrar_sesion"><code class="docutils literal notranslate"><span class="pre">VistaDos.borrar_sesion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.calendarios"><code class="docutils literal notranslate"><span class="pre">VistaDos.calendarios()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.cargar_datos_gui_dos"><code class="docutils literal notranslate"><span class="pre">VistaDos.cargar_datos_gui_dos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.cargar_datos_para_modificar"><code class="docutils literal notranslate"><span class="pre">VistaDos.cargar_datos_para_modificar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.consulta"><code class="docutils literal notranslate"><span class="pre">VistaDos.consulta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.consulta_sesiones"><code class="docutils literal notranslate"><span class="pre">VistaDos.consulta_sesiones()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.crear_gui"><code class="docutils literal notranslate"><span class="pre">VistaDos.crear_gui()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.crear_gui_dos"><code class="docutils literal notranslate"><span class="pre">VistaDos.crear_gui_dos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.funcion_02"><code class="docutils literal notranslate"><span class="pre">VistaDos.funcion_02()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.funcion_03"><code class="docutils literal notranslate"><span class="pre">VistaDos.funcion_03()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.generar_grafico"><code class="docutils literal notranslate"><span class="pre">VistaDos.generar_grafico()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.limpiar"><code class="docutils literal notranslate"><span class="pre">VistaDos.limpiar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.limpiar_campos"><code class="docutils literal notranslate"><span class="pre">VistaDos.limpiar_campos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.limpiar_campos_dos"><code class="docutils literal notranslate"><span class="pre">VistaDos.limpiar_campos_dos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.limpiar_dos"><code class="docutils literal notranslate"><span class="pre">VistaDos.limpiar_dos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.mostrar_aviso"><code class="docutils literal notranslate"><span class="pre">VistaDos.mostrar_aviso()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.mostrar_datos"><code class="docutils literal notranslate"><span class="pre">VistaDos.mostrar_datos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.mostrar_datos_dos"><code class="docutils literal notranslate"><span class="pre">VistaDos.mostrar_datos_dos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.mostrar_grafico"><code class="docutils literal notranslate"><span class="pre">VistaDos.mostrar_grafico()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.mostrar_imagen_de_sesion"><code class="docutils literal notranslate"><span class="pre">VistaDos.mostrar_imagen_de_sesion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.obtener_datos_sesiones"><code class="docutils literal notranslate"><span class="pre">VistaDos.obtener_datos_sesiones()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.on_click_sesion"><code class="docutils literal notranslate"><span class="pre">VistaDos.on_click_sesion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.on_file_picked"><code class="docutils literal notranslate"><span class="pre">VistaDos.on_file_picked()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.route_change"><code class="docutils literal notranslate"><span class="pre">VistaDos.route_change()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista_13.VistaDos.set_selected_row"><code class="docutils literal notranslate"><span class="pre">VistaDos.set_selected_row()</span></code></a></li>
+</ul>
+</li>
+</ul>
+<li class="toctree-l1"><a class="reference internal" href="clases_try.html">"Módulo de excepciones (clases_try)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cls_boton.html">"Módulo Clase botones (cls_boton)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decoradores.html">"Módulo decoradores (decoradores)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observador.html">"Módulo patrón observador (observador)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex_file.html">"Módulo de expresiones regulares (regex_file)"</a></li>
+
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">T.P. Nivel Avanzado - Miguel Arrondo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-vista_13">
+<span id="vista-13-module"></span><h1>"Módulo de la Vista (vista_13)"<a class="headerlink" href="#module-vista_13" title="Link to this heading"></a></h1>
+<p>VISTA: crea dos GUI utilizando Flet. En la primera se cargan y visualizan los datos del paciente cuando ingresa al tratamiento 
+(primera sesión); en la segunda se carga esa primera sesión y en cada sesión subsiguiente, cuando se modifica la tabla en la ventana 1
+se agrega la sesión correspondiente con su fecha y valores de funcionalidad y dolor y la imagen correspondiente.
+De una ventana a la otra se pasa con los botones Principal y Sesiones.
+El usuario puede acceder a la base, grabar, borrar, consultar y/o modificar datos en la misma a través de campos de entrada y 
+la tabla de la ventana principal que muestra el contenido de la tabla Pacientes en la base. 
+En la segunda ventana (Sesiones) puede consultar el historial de cada paciente, buscando por número de HC o por apellido, 
+ver cómo evolucionaron sus valores, las imagenes de cada sesión y generar un gráfico de barras con esos valores de funcionalidad
+y dolor a lo largo del tiempo.
+Se muestran las alertas de error e indicaciones en una ventana de avisos.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="vista_13.VistaDos">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vista_13.</span></span><span class="sig-name descname"><span class="pre">VistaDos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">page</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="observador.html#observador.Sujeto" title="observador.Sujeto"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sujeto</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.abrir_fecha_alta">
+<span class="sig-name descname"><span class="pre">abrir_fecha_alta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.abrir_fecha_alta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.abrir_fecha_alta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.abrir_fecha_ing">
+<span class="sig-name descname"><span class="pre">abrir_fecha_ing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.abrir_fecha_ing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.abrir_fecha_ing" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.actualizar_datos">
+<span class="sig-name descname"><span class="pre">actualizar_datos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vista_13.VistaDos.actualizar_datos" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.agrega_fecha_01">
+<span class="sig-name descname"><span class="pre">agrega_fecha_01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.agrega_fecha_01"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.agrega_fecha_01" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.agrega_fecha_02">
+<span class="sig-name descname"><span class="pre">agrega_fecha_02</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.agrega_fecha_02"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.agrega_fecha_02" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.agregar_fila">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">agregar_fila</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.agregar_fila"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.agregar_fila" title="Link to this definition"></a></dt>
+<dd><p>Guarda los datos en la base. Utiliza el patrón observador para registrar 
+hora, fecha, num_hc y apellido de cada ingreso nuevo en un archivo .txt.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.archivos_seleccionados">
+<span class="sig-name descname"><span class="pre">archivos_seleccionados</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FilePickerResultEvent</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.archivos_seleccionados"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.archivos_seleccionados" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.borrar_fila">
+<span class="sig-name descname"><span class="pre">borrar_fila</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vista_13.VistaDos.borrar_fila" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.borrar_sesion">
+<span class="sig-name descname"><span class="pre">borrar_sesion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.borrar_sesion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.borrar_sesion" title="Link to this definition"></a></dt>
+<dd><p>Borra la sesión seleccionada en la base de datos y en la pantalla Sesiones.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.calendarios">
+<span class="sig-name descname"><span class="pre">calendarios</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.calendarios"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.calendarios" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.cargar_datos_gui_dos">
+<span class="sig-name descname"><span class="pre">cargar_datos_gui_dos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.cargar_datos_gui_dos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.cargar_datos_gui_dos" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.cargar_datos_para_modificar">
+<span class="sig-name descname"><span class="pre">cargar_datos_para_modificar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_table</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.cargar_datos_para_modificar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.cargar_datos_para_modificar" title="Link to this definition"></a></dt>
+<dd><p>Carga los datos de la fila en los campos de la pantalla para su edición</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.consulta">
+<span class="sig-name descname"><span class="pre">consulta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.consulta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.consulta" title="Link to this definition"></a></dt>
+<dd><p>Permite ingresar un número de H.C. o un apellido en los campos de entrada correspondientes
+y muestra en pantalla los datos, si existen en la base. Caso contrario, indica el error.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.consulta_sesiones">
+<span class="sig-name descname"><span class="pre">consulta_sesiones</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.consulta_sesiones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.consulta_sesiones" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.crear_gui">
+<span class="sig-name descname"><span class="pre">crear_gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.crear_gui"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.crear_gui" title="Link to this definition"></a></dt>
+<dd><p>Genera la ventana principal con sus widgets</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.crear_gui_dos">
+<span class="sig-name descname"><span class="pre">crear_gui_dos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.crear_gui_dos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.crear_gui_dos" title="Link to this definition"></a></dt>
+<dd><p>Genera la pantalla secundaria (Sesiones) con sus widgets. Allí se puede hacer el seguimiento de cada paciente a lo
+largo del tiempo; seleccionando una fila los datos generales, que están cargados en la pantalla principal, se 
+muestran también acá, en la parte inferior, para no tener que volver atrás en caso de necesitar esa información.
+En una ventana se muestran las imagenes de cada sesión o los gráficos, según se solicite.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.funcion_02">
+<span class="sig-name descname"><span class="pre">funcion_02</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.funcion_02"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.funcion_02" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.funcion_03">
+<span class="sig-name descname"><span class="pre">funcion_03</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.funcion_03"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.funcion_03" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.generar_grafico">
+<span class="sig-name descname"><span class="pre">generar_grafico</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.generar_grafico"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.generar_grafico" title="Link to this definition"></a></dt>
+<dd><p>Crea un gráfico de barras para comparara la evolución de los valores de 
+dolor y funcionalidad a lo loargo de las sesiones.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.limpiar">
+<span class="sig-name descname"><span class="pre">limpiar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.limpiar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.limpiar" title="Link to this definition"></a></dt>
+<dd><p>Deja en blanco los campos y oculta la tabla de datos</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.limpiar_campos">
+<span class="sig-name descname"><span class="pre">limpiar_campos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.limpiar_campos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.limpiar_campos" title="Link to this definition"></a></dt>
+<dd><p>Deja en blanco los campos del formulario sin afectar la tabla de datos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.limpiar_campos_dos">
+<span class="sig-name descname"><span class="pre">limpiar_campos_dos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.limpiar_campos_dos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.limpiar_campos_dos" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.limpiar_dos">
+<span class="sig-name descname"><span class="pre">limpiar_dos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.limpiar_dos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.limpiar_dos" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.mostrar_aviso">
+<span class="sig-name descname"><span class="pre">mostrar_aviso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mensaje</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Colors.RED</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.mostrar_aviso"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.mostrar_aviso" title="Link to this definition"></a></dt>
+<dd><p>Maneja el texto de los avisos de error, advertencia,etc.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.mostrar_datos">
+<span class="sig-name descname"><span class="pre">mostrar_datos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.mostrar_datos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.mostrar_datos" title="Link to this definition"></a></dt>
+<dd><p>Presenta en pantalla la tabla con todos los campos cargados en la hoja Pacientes de la base.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.mostrar_datos_dos">
+<span class="sig-name descname"><span class="pre">mostrar_datos_dos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.mostrar_datos_dos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.mostrar_datos_dos" title="Link to this definition"></a></dt>
+<dd><p>Muestra todas las filas cargadas en la tabla Sesiones.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.mostrar_grafico">
+<span class="sig-name descname"><span class="pre">mostrar_grafico</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fechas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funcionalidades</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dolores</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.mostrar_grafico"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.mostrar_grafico" title="Link to this definition"></a></dt>
+<dd><p>Muestra el gráfico en la pantalla.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.mostrar_imagen_de_sesion">
+<span class="sig-name descname"><span class="pre">mostrar_imagen_de_sesion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lista_sesiones</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.mostrar_imagen_de_sesion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.mostrar_imagen_de_sesion" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.obtener_datos_sesiones">
+<span class="sig-name descname"><span class="pre">obtener_datos_sesiones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_hc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apellido</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.obtener_datos_sesiones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.obtener_datos_sesiones" title="Link to this definition"></a></dt>
+<dd><p>Esta función retorna los datos necesarios para generar el gráfico.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.on_click_sesion">
+<span class="sig-name descname"><span class="pre">on_click_sesion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.on_click_sesion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.on_click_sesion" title="Link to this definition"></a></dt>
+<dd><p>Al hacer click en una fila se muestra la imagen correspondiente y en la parte inferior
+de la pantalla se cargan todos los datos del paciente seleccionado.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.on_file_picked">
+<span class="sig-name descname"><span class="pre">on_file_picked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FilePickerResultEvent</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.on_file_picked"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.on_file_picked" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.route_change">
+<span class="sig-name descname"><span class="pre">route_change</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">route</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.route_change"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.route_change" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista_13.VistaDos.set_selected_row">
+<span class="sig-name descname"><span class="pre">set_selected_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista_13.html#VistaDos.set_selected_row"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vista_13.VistaDos.set_selected_row" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modelo_13.html" class="btn btn-neutral float-left" title="modelo_13 module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="clases_try.html" class="btn btn-neutral float-right" title="clases_try module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Miguel Arrondo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

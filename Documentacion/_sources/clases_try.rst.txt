@@ -1,0 +1,7 @@
+clases\_try module
+==================
+
+.. automodule:: clases_try
+   :members:
+   :show-inheritance:
+   :undoc-members:

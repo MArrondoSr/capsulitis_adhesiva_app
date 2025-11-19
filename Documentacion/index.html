@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diplomatura Python 3 - T.P. Nivel Avanzado<br> Documentación<br> Alumno: Miguel Arrondo &#8212; Entrega Final 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="controlador_13 module" href="controlador_13.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="nav-home-link">
+    <img src="_static/utn.png" alt="Inicio" class="nav-home-icon">
+    Diplomatura Python<br>T.P. Nivel Avanzado<br>Miguel Arrondo
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="controlador_13.html">"Módulo Controlador (controlador_13)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelo_13.html">"Módulo Modelo (modelo_13)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vista_13.html">"Módulo de la Vista (vista_13)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clases_try.html">"Módulo de excepciones (clases_try)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cls_boton.html">"Módulo Clase botones (cls_boton)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decoradores.html">"Módulo decoradores (decoradores)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observador.html">"Módulo patrón observador (observador)"</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex_file.html">"Módulo de expresiones regulares (regex_file)"</a></li>
+<li class="toctree-l1" style="margin-top:60px;margin-left:10px;margin-right:10px; padding:5px; background:#E6E6FA; border:2px solid #19177C; border-radius:8px;">
+  <a class="reference internal" href="_modules/codigo_server.html" style="color:#19177C; font-weight:bold; font-size:18px; text-decoration:none;">
+    Código auxiliar: <br>
+    Conexión al servidor
+  </a>
+</li>
+
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">T.P. Nivel Avanzado - Miguel Arrondo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+      
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Dipl. Python: T.P. Nivel Avanzado - Documentación - Alumno: Miguel Arrondo">
+<h1>Diplomatura Python 3 - Nivel Avanzado<br> Documentación del T.P. Entrega Final<br> Alumno: Miguel Arrondo<a class="headerlink" href="#miproyecto-documentation" title="Link to this heading"></a></h1>
+<figure style = "text-align: left;">
+  <img src="_static/pantalla02.gif" width="600px" style="display:block; margin:left;">
+  <figcaption style="font-style: italic; margin-top: 8px;">Pantallas de la aplicación</figcaption>
+  </figure>
+
+<div style="margin-top: 40px; margin-bottom: 40px; text-align: left;">
+        <p style="font-size: 16px; font-style: italic; font-weight: bold ;">La aplicación permite agregar, modificar, consultar y borrar 
+          datos en una lista de pacientes. Incluye los datos personales, la información básica necesaria para la evaluación, fechas de ingreso 
+          o de sesión y de alta y tres valores que van cambiando en cada consulta (cantidad de sesiones, dolor y funcionalidad). </p>
+          <div>
+  <p style="color: red;">En esta versión se agregó una segunda tabla a la base de datos (Sesiones) y otra pantalla donde cada vez que se modifica 
+    la pantalla principal (en cada nueva sesión) se agrega una fila. Así, junto al número de H.C., Nombre y Apellido y fecha, se registra el número
+    de la sesión y los valores de funcionalidad y dolor, además de la foto de la sesión. <br>
+    Así se puede ver la evolución de cada paciente cronológicamente por separado, filtrando la tabla por HC o apellido, y generar un gráfico
+  de barras para ilustrar las variaciones en función del tiempo. </p></div>
+
+          <div style="margin-top: 40px; margin-bottom: 40px; text-align: left;">
+        <p style="font-size: 16px; font-style: italic; font-weight: bold ;">La aplicación sigue el paradigma de Programación Orientada a Objetos (POO) 
+          y está estructurada en módulos independientes. <br>
+          El Modelo se encarga de la creación y conexión a la base de datos Sqlite3 mediante el ORM Peewee. La Vista genera las GUIs y 
+          sus correspondientes funcionalidades. El Controlador inicia la aplicación a partir de una ventana de inicio de sesión, donde el usuario 
+          puede identificarse o registrarse si es la primera vez que ingresa. Los datos de registro (usuario y contraseña) se almacenan 
+          en una tabla de la base de datos.<br>
+          Los decoradores registran la actividad del sistema, generando logs cada vez que un usuario inicia sesión y cuando se elimina un registro 
+          de la tabla Pacientes. Estos eventos se almacenan con marca de tiempo en archivos de texto (creados automáticamente si no existen). 
+          En el caso de las eliminaciones, el sistema establece una conexión cliente-servidor para almacenar en el servidor 
+          un archivo de respaldo (.txt) con los datos eliminados. El código correspondiente al servidor se incluye en una carpeta adjunta.<br>
+          Mediante el patrón observador, se documentan automáticamente los nuevos registros de pacientes, generando un archivo .txt 
+          con la información correspondiente. 
+
+          
+          
+
+    </p>
+    </div>
+
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clases_try.html">"Módulo de excepciones (clases_try)"</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clases_try.html#clases_try.Error_interno_db"><code class="docutils literal notranslate"><span class="pre">Error_interno_db</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="clases_try.html#clases_try.HC_duplicada"><code class="docutils literal notranslate"><span class="pre">HC_duplicada</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="clases_try.html#clases_try.Paciente_existe"><code class="docutils literal notranslate"><span class="pre">Paciente_existe</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="clases_try.html#clases_try.Paciente_no_existe"><code class="docutils literal notranslate"><span class="pre">Paciente_no_existe</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="clases_try.html#clases_try.Sesion_no_existe"><code class="docutils literal notranslate"><span class="pre">Sesion_no_existe</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="clases_try.html#clases_try.Usuario_pass_incorrecto"><code class="docutils literal notranslate"><span class="pre">Usuario_pass_incorrecto</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cls_boton.html">"Módulo Clase botones (cls_boton)"</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cls_boton.html#cls_boton.Boton001"><code class="docutils literal notranslate"><span class="pre">Boton001</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cls_boton.html#cls_boton.Boton002"><code class="docutils literal notranslate"><span class="pre">Boton002</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cls_boton.html#cls_boton.Boton003"><code class="docutils literal notranslate"><span class="pre">Boton003</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cls_boton.html#cls_boton.Boton004"><code class="docutils literal notranslate"><span class="pre">Boton004</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controlador_13.html">"Módulo Controlador (controlador_13)"</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="controlador_13.html#controlador_13.Controlador"><code class="docutils literal notranslate"><span class="pre">Controlador</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controlador_13.html#controlador_13.Controlador.main"><code class="docutils literal notranslate"><span class="pre">Controlador.main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="decoradores.html">"Módulo de decoradores (decoradores). El indicador de baja ncluye el código del cliente para conectarse al servidor mediante la capa socket.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="decoradores.html#decoradores.indicador_baja"><code class="docutils literal notranslate"><span class="pre">indicador_baja()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoradores.html#decoradores.indicador_login"><code class="docutils literal notranslate"><span class="pre">indicador_login()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoradores.html#decoradores.indicador_modificacion"><code class="docutils literal notranslate"><span class="pre">indicador_modificacion()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modelo_13.html">"Módulo Modelo (modelo_13)"</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modelo_13.html#modelo_13.BaseModel"><code class="docutils literal notranslate"><span class="pre">BaseModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.BaseModel.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">BaseModel.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.BaseModel.id"><code class="docutils literal notranslate"><span class="pre">BaseModel.id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase"><code class="docutils literal notranslate"><span class="pre">DataBase</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase.actualizar_paciente_en_base"><code class="docutils literal notranslate"><span class="pre">DataBase.actualizar_paciente_en_base()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase.borrar_fila_sesion"><code class="docutils literal notranslate"><span class="pre">DataBase.borrar_fila_sesion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase.borrar_paciente"><code class="docutils literal notranslate"><span class="pre">DataBase.borrar_paciente()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase.consultar_paciente"><code class="docutils literal notranslate"><span class="pre">DataBase.consultar_paciente()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase.insertar_en_sesiones"><code class="docutils literal notranslate"><span class="pre">DataBase.insertar_en_sesiones()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase.insertar_paciente_si_no_existe"><code class="docutils literal notranslate"><span class="pre">DataBase.insertar_paciente_si_no_existe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase.obtener_datos_paciente_por_hc_apellido"><code class="docutils literal notranslate"><span class="pre">DataBase.obtener_datos_paciente_por_hc_apellido()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase.obtener_datos_paciente_por_id"><code class="docutils literal notranslate"><span class="pre">DataBase.obtener_datos_paciente_por_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase.obtener_historial_sesiones"><code class="docutils literal notranslate"><span class="pre">DataBase.obtener_historial_sesiones()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase.obtener_pacientes"><code class="docutils literal notranslate"><span class="pre">DataBase.obtener_pacientes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase.obtener_sesiones"><code class="docutils literal notranslate"><span class="pre">DataBase.obtener_sesiones()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase.registrar_usuario"><code class="docutils literal notranslate"><span class="pre">DataBase.registrar_usuario()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.DataBase.validar_usuario"><code class="docutils literal notranslate"><span class="pre">DataBase.validar_usuario()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modelo_13.html#modelo_13.Paciente"><code class="docutils literal notranslate"><span class="pre">Paciente</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Paciente.agregar"><code class="docutils literal notranslate"><span class="pre">Paciente.agregar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Paciente.notificar"><code class="docutils literal notranslate"><span class="pre">Paciente.notificar()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes"><code class="docutils literal notranslate"><span class="pre">Pacientes</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Pacientes.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.alta"><code class="docutils literal notranslate"><span class="pre">Pacientes.alta</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.ansiedad"><code class="docutils literal notranslate"><span class="pre">Pacientes.ansiedad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.apellido"><code class="docutils literal notranslate"><span class="pre">Pacientes.apellido</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.climaterio"><code class="docutils literal notranslate"><span class="pre">Pacientes.climaterio</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.conflictos"><code class="docutils literal notranslate"><span class="pre">Pacientes.conflictos</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.depresion"><code class="docutils literal notranslate"><span class="pre">Pacientes.depresion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.diabetes"><code class="docutils literal notranslate"><span class="pre">Pacientes.diabetes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.dolor"><code class="docutils literal notranslate"><span class="pre">Pacientes.dolor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.edad"><code class="docutils literal notranslate"><span class="pre">Pacientes.edad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.fumador"><code class="docutils literal notranslate"><span class="pre">Pacientes.fumador</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.funcionalidad"><code class="docutils literal notranslate"><span class="pre">Pacientes.funcionalidad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.hipotir"><code class="docutils literal notranslate"><span class="pre">Pacientes.hipotir</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.id"><code class="docutils literal notranslate"><span class="pre">Pacientes.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.ingreso"><code class="docutils literal notranslate"><span class="pre">Pacientes.ingreso</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.ms_afec"><code class="docutils literal notranslate"><span class="pre">Pacientes.ms_afec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.nombre"><code class="docutils literal notranslate"><span class="pre">Pacientes.nombre</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.num_hc"><code class="docutils literal notranslate"><span class="pre">Pacientes.num_hc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.queloide"><code class="docutils literal notranslate"><span class="pre">Pacientes.queloide</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.sesiones"><code class="docutils literal notranslate"><span class="pre">Pacientes.sesiones</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Pacientes.sexo"><code class="docutils literal notranslate"><span class="pre">Pacientes.sexo</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modelo_13.html#modelo_13.Sesiones"><code class="docutils literal notranslate"><span class="pre">Sesiones</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Sesiones.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Sesiones.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Sesiones.apellido"><code class="docutils literal notranslate"><span class="pre">Sesiones.apellido</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Sesiones.dolor"><code class="docutils literal notranslate"><span class="pre">Sesiones.dolor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Sesiones.fecha"><code class="docutils literal notranslate"><span class="pre">Sesiones.fecha</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Sesiones.funcionalidad"><code class="docutils literal notranslate"><span class="pre">Sesiones.funcionalidad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Sesiones.id"><code class="docutils literal notranslate"><span class="pre">Sesiones.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Sesiones.imagen_path"><code class="docutils literal notranslate"><span class="pre">Sesiones.imagen_path</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Sesiones.nombre"><code class="docutils literal notranslate"><span class="pre">Sesiones.nombre</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Sesiones.num_hc"><code class="docutils literal notranslate"><span class="pre">Sesiones.num_hc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Sesiones.sesiones"><code class="docutils literal notranslate"><span class="pre">Sesiones.sesiones</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modelo_13.html#modelo_13.Usuario"><code class="docutils literal notranslate"><span class="pre">Usuario</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Usuario.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Usuario.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Usuario.id"><code class="docutils literal notranslate"><span class="pre">Usuario.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Usuario.password"><code class="docutils literal notranslate"><span class="pre">Usuario.password</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelo_13.html#modelo_13.Usuario.usuario"><code class="docutils literal notranslate"><span class="pre">Usuario.usuario</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modelo_13.html#modelo_13.iniciar_bd"><code class="docutils literal notranslate"><span class="pre">iniciar_bd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="observador.html">"Módulo del patrón observador (observador)"</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="observador.html#observador.ConcreteObserverA"><code class="docutils literal notranslate"><span class="pre">ConcreteObserverA</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="observador.html#observador.ConcreteObserverA.update"><code class="docutils literal notranslate"><span class="pre">ConcreteObserverA.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="observador.html#observador.Observador"><code class="docutils literal notranslate"><span class="pre">Observador</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="observador.html#observador.Observador.update"><code class="docutils literal notranslate"><span class="pre">Observador.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="observador.html#observador.Sujeto"><code class="docutils literal notranslate"><span class="pre">Sujeto</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="observador.html#observador.Sujeto.agregar"><code class="docutils literal notranslate"><span class="pre">Sujeto.agregar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="observador.html#observador.Sujeto.notificar"><code class="docutils literal notranslate"><span class="pre">Sujeto.notificar()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="regex_file.html">"Módulo de expresiones regulares (regex_file)"</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="regex_file.html#regex_file.Regex_01"><code class="docutils literal notranslate"><span class="pre">Regex_01</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="regex_file.html#regex_file.Regex_01.email_valido"><code class="docutils literal notranslate"><span class="pre">Regex_01.email_valido()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="regex_file.html#regex_file.Regex_01.numero_hc_valido"><code class="docutils literal notranslate"><span class="pre">Regex_01.numero_hc_valido()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vista_13.html">"Módulo Vista (vista_13)"</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vista_13.html#vista_13.VistaDos"><code class="docutils literal notranslate"><span class="pre">VistaDos</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.abrir_fecha_alta"><code class="docutils literal notranslate"><span class="pre">VistaDos.abrir_fecha_alta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.abrir_fecha_ing"><code class="docutils literal notranslate"><span class="pre">VistaDos.abrir_fecha_ing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.actualizar_datos"><code class="docutils literal notranslate"><span class="pre">VistaDos.actualizar_datos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.agrega_fecha_01"><code class="docutils literal notranslate"><span class="pre">VistaDos.agrega_fecha_01()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.agrega_fecha_02"><code class="docutils literal notranslate"><span class="pre">VistaDos.agrega_fecha_02()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.agregar_fila"><code class="docutils literal notranslate"><span class="pre">VistaDos.agregar_fila()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.archivos_seleccionados"><code class="docutils literal notranslate"><span class="pre">VistaDos.archivos_seleccionados()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.borrar_fila"><code class="docutils literal notranslate"><span class="pre">VistaDos.borrar_fila()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.borrar_sesion"><code class="docutils literal notranslate"><span class="pre">VistaDos.borrar_sesion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.calendarios"><code class="docutils literal notranslate"><span class="pre">VistaDos.calendarios()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.cargar_datos_gui_dos"><code class="docutils literal notranslate"><span class="pre">VistaDos.cargar_datos_gui_dos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.cargar_datos_para_modificar"><code class="docutils literal notranslate"><span class="pre">VistaDos.cargar_datos_para_modificar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.consulta"><code class="docutils literal notranslate"><span class="pre">VistaDos.consulta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.consulta_sesiones"><code class="docutils literal notranslate"><span class="pre">VistaDos.consulta_sesiones()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.crear_gui"><code class="docutils literal notranslate"><span class="pre">VistaDos.crear_gui()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.crear_gui_dos"><code class="docutils literal notranslate"><span class="pre">VistaDos.crear_gui_dos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.funcion_02"><code class="docutils literal notranslate"><span class="pre">VistaDos.funcion_02()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.funcion_03"><code class="docutils literal notranslate"><span class="pre">VistaDos.funcion_03()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.generar_grafico"><code class="docutils literal notranslate"><span class="pre">VistaDos.generar_grafico()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.limpiar"><code class="docutils literal notranslate"><span class="pre">VistaDos.limpiar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.limpiar_campos"><code class="docutils literal notranslate"><span class="pre">VistaDos.limpiar_campos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.limpiar_campos_dos"><code class="docutils literal notranslate"><span class="pre">VistaDos.limpiar_campos_dos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.limpiar_dos"><code class="docutils literal notranslate"><span class="pre">VistaDos.limpiar_dos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.mostrar_aviso"><code class="docutils literal notranslate"><span class="pre">VistaDos.mostrar_aviso()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.mostrar_datos"><code class="docutils literal notranslate"><span class="pre">VistaDos.mostrar_datos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.mostrar_datos_dos"><code class="docutils literal notranslate"><span class="pre">VistaDos.mostrar_datos_dos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.mostrar_grafico"><code class="docutils literal notranslate"><span class="pre">VistaDos.mostrar_grafico()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.mostrar_imagen_de_sesion"><code class="docutils literal notranslate"><span class="pre">VistaDos.mostrar_imagen_de_sesion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.obtener_datos_sesiones"><code class="docutils literal notranslate"><span class="pre">VistaDos.obtener_datos_sesiones()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.on_click_sesion"><code class="docutils literal notranslate"><span class="pre">VistaDos.on_click_sesion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.on_file_picked"><code class="docutils literal notranslate"><span class="pre">VistaDos.on_file_picked()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.route_change"><code class="docutils literal notranslate"><span class="pre">VistaDos.route_change()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vista_13.html#vista_13.VistaDos.set_selected_row"><code class="docutils literal notranslate"><span class="pre">VistaDos.set_selected_row()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+         <a href="controlador_13.html" class="btn btn-neutral float-right" title="controlador_13 module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Miguel Arrondo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
